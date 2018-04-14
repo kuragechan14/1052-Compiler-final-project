@@ -1,0 +1,346 @@
+Input the statement:
+a = b + c * d
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	a Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+	= Matched
+   expr -> rel = expr
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	b Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	c Matched
+   factor -> id
+[Matching]term_tail()
+	* Matched
+   term_tail -> * factor term_tail
+[Matching]factor()
+	d Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+此statement合法
+Success.
+
+==================================================
+Input the statement:
+day = (1461*2) + 4.5 + (153*6+2) < 5 + 3
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	day Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+	= Matched
+   expr -> rel = expr
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	( Matched
+   factor -> ( expr )
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	1461 Matched
+   factor -> num
+[Matching]term_tail()
+	* Matched
+   term_tail -> * factor term_tail
+[Matching]factor()
+	2 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+	) Matched
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	4.5 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	( Matched
+   factor -> ( expr )
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	153 Matched
+   factor -> num
+[Matching]term_tail()
+	* Matched
+   term_tail -> * factor term_tail
+[Matching]factor()
+	6 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	2 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+	) Matched
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+	< Matched
+   rel_tail -> < add rel_tail
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	5 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	3 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+此statement合法
+Success.
+
+==================================================
+Input the statement:
+123 =  (123 +* 4 ) 5 * 6
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	123 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+	= Matched
+   expr -> rel = expr
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	( Matched
+   factor -> ( expr )
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	123 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	[ERROR]不是符合的terminal
+	[parsing stops at: 123=(123+*]
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+
+此statement不合法
+[Syntax Error(2)文法] Failed.
+Parsing stops at:123=(123+*
+
+==================================================
+Input the statement:
+a + 3 < 4 = p * qq <= 9  /* this is wired */
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	a Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+	+ Matched
+   add_tail -> + term add_tail
+[Matching]term()
+[Matching]factor()
+	3 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+	< Matched
+   rel_tail -> < add rel_tail
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	4 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+	= Matched
+   expr -> rel = expr
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	p Matched
+   factor -> id
+[Matching]term_tail()
+	* Matched
+   term_tail -> * factor term_tail
+[Matching]factor()
+	qq Matched
+   factor -> id
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+	<= Matched
+   rel_tail -> <= add rel_tail
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	9 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+此statement合法
+Success.
+
+==================================================
+Input the statement:
+(555)10
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	( Matched
+   factor -> ( expr )
+[Matching]expr()
+[Matching]rel()
+[Matching]add()
+[Matching]term()
+[Matching]factor()
+	555 Matched
+   factor -> num
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+	) Matched
+[Matching]term_tail()
+   term_tail -> null
+[Matching]add_tail()
+   add_tail -> null
+[Matching]rel_tail()
+   rel_tail -> null
+   expr -> rel
+
+此statement不合法
+[Syntax Error(2)文法] Failed.
+Parsing stops at:(555)
+
+==================================================

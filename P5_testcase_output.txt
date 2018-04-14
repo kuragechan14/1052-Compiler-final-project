@@ -1,0 +1,33 @@
+Input the statement:
+a = b + c * d
+此statement合法
+Success.
+Postfix form of the input:
+a b c d * + = 
+
+==================================================
+Input the statement:
+day = (1461*2) + 4.5 + (153*6+2) < 5 + 3
+此statement合法
+Success.
+Postfix form of the input:
+day 1461 2 * 4.5 + 153 6 * 2 + + 5 3 + < = 
+
+==================================================
+Input the statement:
+123 =  (123 +* 4 ) 5 * 6
+	[ERROR]不是符合的terminal
+	Conversion stops at: 123 123 
+
+此statement不合法
+[Syntax Error(2)文法] Failed.
+
+==================================================
+Input the statement:
+a + 3 < 4 = p * qq <= 9  /* this is wired */
+此statement合法
+Success.
+Postfix form of the input:
+a 3 + 4 < p qq * 9 <= = 
+
+==================================================

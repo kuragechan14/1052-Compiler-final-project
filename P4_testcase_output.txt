@@ -1,0 +1,98 @@
+Input the statement:
+a = b + c * d
+(1)刪除註解:a = b + c * d
+(2)刪除空白:a=b+c*d
+(3)依序處理數字、字串、符號:
+<ID,a>
+<=,>
+<ID,b>
+<+,>
+<ID,c>
+<*,>
+<ID,d>
+End of file.
+
+Input the statement:
+day = (1461*2) + 4.5 + (153*6+2) < 5 + 3
+(1)刪除註解:day = (1461*2) + 4.5 + (153*6+2) < 5 + 3
+(2)刪除空白:day=(1461*2)+4.5+(153*6+2)<5+3
+(3)依序處理數字、字串、符號:
+<ID,day>
+<=,>
+<(,>
+<NUM,1461>
+<*,>
+<NUM,2>
+<),>
+<+,>
+<NUM,4.5>
+<+,>
+<(,>
+<NUM,153>
+<*,>
+<NUM,6>
+<+,>
+<NUM,2>
+<),>
+<<,>
+<NUM,5>
+<+,>
+<NUM,3>
+End of file.
+
+Input the statement:
+123 =  (123 +* 4 ) 5 * 6
+(1)刪除註解:123 =  (123 +* 4 ) 5 * 6
+(2)刪除空白:123=(123+*4)5*6
+(3)依序處理數字、字串、符號:
+<NUM,123>
+<=,>
+<(,>
+<NUM,123>
+<+,>
+<*,>
+<NUM,4>
+<),>
+<NUM,5>
+<*,>
+<NUM,6>
+End of file.
+
+Input the statement:
+a + 3 < 4 = p * qq <= 9  /* this is wired */
+(1)刪除註解:a + 3 < 4 = p * qq <= 9  
+(2)刪除空白:a+3<4=p*qq<=9
+(3)依序處理數字、字串、符號:
+<ID,a>
+<+,>
+<NUM,3>
+<<,>
+<NUM,4>
+<=,>
+<ID,p>
+<*,>
+<ID,qq>
+<<=,>
+<NUM,9>
+End of file.
+
+Input the statement:
+a = d * c //Hello 456
+(1)刪除註解:a = d * c 
+(2)刪除空白:a=d*c
+(3)依序處理數字、字串、符號:
+<ID,a>
+<=,>
+<ID,d>
+<*,>
+<ID,c>
+End of file.
+
+Input the statement:
+3..1415=pi
+(1)刪除註解:3..1415=pi
+(2)刪除空白:3..1415=pi
+(3)依序處理數字、字串、符號:
+3..1415	Error-NUM not matched.
+[Syntax Error(1)] End of file.
+
